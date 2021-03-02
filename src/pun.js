@@ -1,5 +1,6 @@
 const pun = (prefix) => { 
 	return `
+
 ┏[𝗙𝗨𝗡-𝗠𝗘𝗡𝗨]
 ┃
 ┣➣ *${prefix}fitnah*
@@ -16,7 +17,6 @@ const pun = (prefix) => {
 ┣➣ *${prefix}igstalk* ( nama ig lu tot )
 ┣➣ *${prefix}katabijak*
 ┣➣ *${prefix}katailham*
-┗➣ *${prefix}fakta*
-`
+┗➣ *${prefix}fakta*`
 }
 exports.pun = pun
