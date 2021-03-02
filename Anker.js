@@ -600,6 +600,26 @@ async function starts() {
 					fs.writeFileSync('./database/json/banned.json', JSON.stringify(banned))
 					reply(`Nomor wa.me/${bnnd} telah di unban!`)
 					break
+                                 case 'earrape':
+					 	if (!isQuotedAudio) return reply('Reply audio yang akan di Earrape')
+				 encmedia = isQuotedAudio ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
+				media = await client.downloadAndSaveMediaMessage(encmedia)
+			        ran = getRandom('.mp3')
+				try {
+				exec(`ffmpeg -i ${media} -af volume=12 ${ran}`, (err, stderr, stdout) => {
+				//fs.unlinkSync(media)
+				if (err) return reply('Error!')
+				ntc1 = fs.readFileSync(ran)
+				client.sendMessage(from, ntc1, audio, {mimetype: 'audio/mp4', ptt:false, duration: 99999999999})
+			            //fs.unlinkSync(ranm)
+				   //fs.unlinkSync(ran)
+								
+				  })
+				   } catch (err) {
+		                   client.sendMessage(from, "Gagal Membuat Suara MP3 Menjadi Earrape!!", text, { quoted: mek  })
+		                   console.log(err)
+	                          }
+				break
 				case 'block':
 				 client.updatePresence(from, Presence.composing) 
 					if (!isGroup) return reply(mess.only.group)
